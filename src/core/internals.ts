@@ -20,17 +20,15 @@ export class Internals {
   }
 
   static isQuoted (value: string, config: EscapeConfig): boolean {
-    return value.startsWith(config.quoteChar) 
-      && value.endsWith(config.quoteChar);
+    return (
+      value.startsWith(config.quoteChar) 
+      && value.endsWith(config.quoteChar)
+    );
   }
 
   static quote (value: string, config: EscapeConfig) : string {
-    const escapedValue = Internals.escape(value, config);
-    
-    if (Internals.isQuoted(escapedValue, config)) {
-      return escapedValue;
-    }
-
+    const unquotedValue = Internals.unquote(value, config);
+    const escapedValue = Internals.escape(unquotedValue, config);
     return `${config.quoteChar}${escapedValue}${config.quoteChar}`;
   }
   

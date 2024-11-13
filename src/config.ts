@@ -8,7 +8,7 @@ export const config = {
     replacements: {
       "'": "''",       // Single quote
       '"': '""',       // Double quote
-      "`": "``"        // Backtick
+      "`": "``",        // Backtick
     },
     isEscapedPattern: (char: any) => {
       return new RegExp(`(?<!${char})${char}(?!${char})`)
@@ -21,7 +21,7 @@ export const config = {
     replacements: {
       "'": "''",       // Single quote
       '"': '""',       // Double quote
-      "`": "``"        // Backtick
+      "`": "``",        // Backtick
     },
     isEscapedPattern: (char: any) => {
       return new RegExp(`(?<!${char})${char}(?!${char})`)
@@ -38,7 +38,7 @@ export const config = {
       "`": "\\`",      // Backtick
       "\0": "\\0",     // Null byte
       "%": "\\%",      // Percent sign
-      "_": "\\_"       // Underscore
+      "_": "\\_",       // Underscore
     },
     isEscapedPattern: (char: any) => {
       return new RegExp(`(?<!\\\\)${char.replace(/([.*+?^${}()|[\]\\])/g, '\\$1')}`)
